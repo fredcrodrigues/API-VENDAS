@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "b3CwV5XKLHqS2toHBL9fDRbkPDrWPr67Y2UJ1SLzriU=",
+  "Source": "ApiVendas",
+  "BasePath": "_content/ApiVendas",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
