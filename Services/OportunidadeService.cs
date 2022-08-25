@@ -21,6 +21,7 @@ public class OportunidadeService
 
     public async Task<List<OportunidadeModels>> GetAsync() => await _databaseSettingsModels.Find(_ => true).ToListAsync();
 
+    public async Task<OportunidadeModels> GetAsyncId(string id) => await _databaseSettingsModels.Find(x => x.Vendedor.Id == id).FirstOrDefaultAsync();
 
     public async Task Create(OportunidadeModels data)
     {

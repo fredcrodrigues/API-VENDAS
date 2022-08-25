@@ -29,6 +29,19 @@ public class OportunidadeController : ControllerBase
     public async Task<List<OportunidadeModels>> GetOportunidade() => await _oportunidadeService.GetAsync();
 
 
+    [HttpGet("{id:length(24)}")]
+
+    public async Task<ActionResult<OportunidadeModels>> GetOportunidade(string id)
+    {
+       var vendedorOportunidade =  await _oportunidadeService.GetAsyncId(id);
+
+        if(vendedorOportunidade is null)
+        
+            NotFound();
+        
+        return vendedorOportunidade;
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create(OportunidadeModels data)
     {

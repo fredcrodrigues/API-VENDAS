@@ -20,7 +20,8 @@ public class VendedorService
      }
 
     public async Task<List<VendedorModels>> GetAsync() => await _databaseSettingsModels.Find(_ => true).ToListAsync();
-    public async Task<VendedorModels> GetId(string id) => await _databaseSettingsModels.Find(x => x.Id == id).FirstOrDefaultAsync();
+    public async Task<VendedorModels> GetId(string id) =>  await _databaseSettingsModels.Find(x => x.Id == id).FirstOrDefaultAsync();
+  
 
     public async Task Create(VendedorModels date)
     {
