@@ -63,20 +63,18 @@ public class OportunidadeController : ControllerBase
 
         data.Cnpj = cnpj;
         data.Vendedor = (oportunidades.Count() == 0)? vendedor : Funcoes.Roleta(vendedor, oportunidades);
-       
+
+        var nflag =  Funcoes.VerifcaRegiao(data);
+        Console.WriteLine(nflag);
         /// Ver melhorias //
-        if (data.Vendedor != null)
+        if (nflag)
         {
             await _oportunidadeService.Create(data);
-            flag = true;
+            
         }
-        else
-        {
-            flag = false;
-        }
+       
 
-
-        return (flag)? CreatedAtAction(nameof(GetOportunidade), data) : NotFound("Vendedor não pose ser cadastrado");
+        return (nflag) ? CreatedAtAction(nameof(GetOportunidade), data) : NotFound("Vendedor não pose ser cadastrado");
 
     }
 
