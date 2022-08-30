@@ -6,7 +6,7 @@ namespace ApiVendas.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class VendedorController : ControllerBase
+public class VendedorController : ControllerBase  
 {
     private readonly VendedorService _vendedorService;
 
@@ -19,7 +19,7 @@ public class VendedorController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreatePost(VendedorModels date)
     {
-       
+        
         await _vendedorService.Create(date);
         return CreatedAtAction(nameof(Get), date);
     }

@@ -25,7 +25,7 @@ public class VendedorService
 
     public async Task Create(VendedorModels date)
     {
-        Console.WriteLine("Chegou!");
+       
 
         await _databaseSettingsModels.InsertOneAsync(date);
     }

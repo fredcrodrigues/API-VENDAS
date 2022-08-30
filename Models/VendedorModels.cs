@@ -5,11 +5,11 @@ namespace ApiVendas.Models;
 
 public enum Regiao
 {
-    Norte,
-    Nordeste,
-    Sudeste,
-    Centro_Oeste,
-    Sul
+    Norte = 1,
+    Nordeste = 2,
+    Sudeste = 3,
+    Centro_Oeste = 4,
+    Sul = 5
 }
 
 public class VendedorModels

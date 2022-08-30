@@ -45,7 +45,7 @@ public class OportunidadeController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(OportunidadeModels data)
     {
-        bool flag;
+       
         var date_cnpj = await _apiService.GetApi(data.Cnpj.Numero);
         var vendedor = await _vendedorService.GetId(data.Vendedor.Id);
         
@@ -62,10 +62,13 @@ public class OportunidadeController : ControllerBase
         };
 
         data.Cnpj = cnpj;
+        Console.WriteLine(oportunidades.Count());
+        Console.WriteLine(vendedor.Id);
+        Console.WriteLine(vendedor.Nome);
         data.Vendedor = (oportunidades.Count() == 0)? vendedor : Funcoes.Roleta(vendedor, oportunidades);
-
+        Console.WriteLine("Data Vendedor pos rroleta" + data.Vendedor);
         var nflag =  Funcoes.VerifcaRegiao(data);
-        Console.WriteLine(nflag);
+        Console.WriteLine("Flag vem" + nflag);
         /// Ver melhorias //
         if (nflag)
         {
@@ -74,7 +77,7 @@ public class OportunidadeController : ControllerBase
         }
        
 
-        return (nflag) ? CreatedAtAction(nameof(GetOportunidade), data) : NotFound("Vendedor não pose ser cadastrado");
+        return (!nflag) ? NotFound("Vendedor não pose ser cadastrado") : CreatedAtAction(nameof(GetOportunidade), data);
 
     }
 
