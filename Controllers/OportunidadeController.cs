@@ -61,14 +61,10 @@ public class OportunidadeController : ControllerBase
             Atividade = jobject.SelectToken("estabelecimento.atividade_principal.descricao").ToString()
         };
 
-        data.Cnpj = cnpj;
-        Console.WriteLine(oportunidades.Count());
-        Console.WriteLine(vendedor.Id);
-        Console.WriteLine(vendedor.Nome);
-        data.Vendedor = (oportunidades.Count() == 0)? vendedor : Funcoes.Roleta(vendedor, oportunidades);
-        Console.WriteLine("Data Vendedor pos rroleta" + data.Vendedor);
-        var nflag =  Funcoes.VerifcaRegiao(data);
-        Console.WriteLine("Flag vem" + nflag);
+        data.Cnpj = cnpj; 
+        data.Vendedor = (oportunidades.Count() == 0)? vendedor : Function.Roleta(vendedor, oportunidades);
+        var nflag = Function.VerifRegiao(data);
+       
         /// Ver melhorias //
         if (nflag)
         {
