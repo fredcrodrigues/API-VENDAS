@@ -55,3 +55,5 @@ C:\Users\Fredson\source\repos\ApiVendas\bin\Debug\net6.0\Microsoft.Extensions.De
 C:\Users\Fredson\source\repos\ApiVendas\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Fredson\source\repos\ApiVendas\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\Fredson\source\repos\ApiVendas\bin\Debug\net6.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+C:\Users\Fredson\source\repos\ApiVendas\bin\Debug\net6.0\ApiVendas.xml
+C:\Users\Fredson\source\repos\ApiVendas\obj\Debug\net6.0\ApiVendas.xml

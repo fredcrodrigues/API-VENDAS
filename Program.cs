@@ -1,6 +1,7 @@
 using ApiVendas.Services;
 using ApiVendas.Models;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,7 +32,23 @@ builder.Services.AddSwaggerGenNewtonsoftSupport();
 builder.Services.AddSwaggerGen( s =>
 {
     /// Describe name API
-    s.SwaggerDoc("v1", new OpenApiInfo { Title = "Api Vendas" , Version = "v1"});
+    s.SwaggerDoc("v1", new OpenApiInfo
+    {
+      Title = "Api Vendas e Opotunidades" ,
+      Version = "v1",
+      Description = "Api que gerencia oportunidades de vendas e seus vendedores. " +
+      "Cada vendedor é responsável por atender uma região do Brasil (norte, nordeste, sudeste, centro-oeste e sul)",
+      Contact = new OpenApiContact
+      {
+          Name = "Fredson Costa",
+          Email = "fredsoncostaa@gmail.com",
+          Url = new Uri ("https://github.com/fredcrodrigues")
+      }
+
+    });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    s.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFile));
 });
 
 

@@ -5,6 +5,7 @@ namespace ApiVendas.Models;
 
 public enum Regiao
 {
+    Vazio = 0,
     Norte = 1,
     Nordeste = 2,
     Sudeste = 3,
@@ -16,7 +17,7 @@ public class VendedorModels
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; set; }
+    public string Id { get; set; }
 
     [BsonElement("nome")]
     public string Nome { get; set; }

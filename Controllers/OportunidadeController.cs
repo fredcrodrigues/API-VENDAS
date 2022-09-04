@@ -23,12 +23,23 @@ public class OportunidadeController : ControllerBase
         _vendedorService = vendedorService;
 
 
-    } 
+    }
 
+    /// <summary>
+    /// Obtem a lista de oportunidades com vendedores
+    /// </summary>
+    ///  <response code="200"> Obtem a lista de oportunidades</response>
+    
     [HttpGet]
     public async Task<List<OportunidadeModels>> GetOportunidade() => await _oportunidadeService.GetAsync();
 
 
+    /// <summary>
+    /// Obtem a lista de oportunidades por id
+    /// </summary>
+    /// 
+    ///  <response code="201"> Um novo vendedor foi criado</response>
+    
     [HttpGet("{id:length(24)}")]
 
     public async Task<ActionResult<OportunidadeModels>> GetOportunidade(string id)
@@ -41,6 +52,35 @@ public class OportunidadeController : ControllerBase
         
         return vendedorOportunidade;
     }
+
+    /// <summary>
+    /// Cadastra Oportunidades
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// 
+    /// Exemplo: 
+    /// 
+    ///      POST /Oportunidade
+    ///      {
+    ///         "id": "gerado automaticamente"
+    ///         "cnpj": {
+    ///             "numero": "27865757000102"
+    ///             }
+    ///         "nome": "procurando vendendor de casas",
+    ///         "valor": "100.00",
+    ///         "vendedor":{
+    ///             "id": "630d2395f451c150a2d6fc1b"
+    ///             }
+    ///       }
+    ///         
+    /// * Os outros valores são gerados automaticamente 
+    /// * Necessário adicionar o CNPJ para que a API encontre-o
+    /// 
+    /// </remarks>
+    ///     
+    /// <response code="201"> Uma nova oportunidade foi criada </response>
+    /// <response code="400"> Erro ao criar a oprotunidade</response>
 
     [HttpPost]
     public async Task<IActionResult> Create(OportunidadeModels data)

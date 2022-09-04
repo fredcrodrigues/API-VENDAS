@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiVendas</name>
+    </assembly>
+    <members>
+        <member name="M:ApiVendas.Controllers.OportunidadeController.GetOportunidade">
+            <summary>
+            Obtem a lista de oportunidades com vendedores
+            </summary>
+             <response code="200"> Obtem a lista de oportunidades</response>
+        </member>
+        <member name="M:ApiVendas.Controllers.OportunidadeController.GetOportunidade(System.String)">
+            <summary>
+            Obtem a lista de oportunidades por id
+            </summary>
+            
+             <response code="201"> Um novo vendedor foi criado</response>
+        </member>
+        <member name="M:ApiVendas.Controllers.OportunidadeController.Create(ApiVendas.Models.OportunidadeModels)">
+            <summary>
+            Cadastra Oportunidades
+            </summary>
+            
+            <remarks>
+            
+            Exemplo: 
+            
+                 POST /Oportunidade
+                 {
+                    "id": "gerado automaticamente"
+                    "cnpj": {
+                        "numero": "27865757000102"
+                        }
+                    "nome": "procurando vendendor de casas",
+                    "valor": "100.00",
+                    "vendedor":{
+                        "id": "630d2395f451c150a2d6fc1b"
+                        }
+                  }
+                    
+            * Os outros valores são gerados automaticamente *
+            
+            </remarks>
+                
+            <response code="201"> Uma nova oportunidade foi criada </response>
+            <response code="400"> Erro ao criar a oprotunidade</response>
+        </member>
+        <member name="M:ApiVendas.Controllers.VendedorController.Get">
+            <summary>
+            Lista Todas os Vendedores cadastrados
+            </summary>
+            <returns>Retorna a lista de vendedores</returns>
+            <response code="200"> Retorna os itens da lista</response>
+        </member>
+        <member name="M:ApiVendas.Controllers.VendedorController.CreatePost(ApiVendas.Models.VendedorModels)">
+            <summary>
+            Cria um novo vendedor e selecione uma região
+            </summary>
+            <remarks>
+            
+            Exemplo: 
+            
+                POST /Vendedor
+                {
+                 "id":"gerado automaticamente"
+                 "nome": "João",
+                 "email": "joao@gmail.com",
+                 "regiao": "1"
+                }
+                
+            Regiões: 
+            * Vazio - 0,
+            * Norte - 1,
+            * Nordeste - 2,
+            * Sudeste - 3,
+            * Centro_Oeste - 4,
+            * Sulv - 5 
+            </remarks>
+            <response code="201"> Um novo vendedor foi criado</response>
+            <response code="400" >O novo vendedor não foi criado</response>
+        </member>
+    </members>
+</doc>
