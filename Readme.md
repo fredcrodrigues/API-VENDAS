@@ -1,31 +1,33 @@
-## API VENDAS E OPORTUNIDADES / COM MONGODB
+## API VENDAS E OPORTUNIDADES / COM MONGODB - WEB API
 
-Este projeto È uma API de vendas de acorodo com as regras estabelecidas no [DESAFIO](). Dessa forma a API gerencia oportunidades de vendas e seus vendedores.
-Neste projeto tambÈm est· habilitado o **SWAGGER** documentando o funcionamento da API, alÈm de ser desenvolvido no [Microsoft Visual Studio](https://visualstudio.microsoft.com/pt-br/downloads/).
+Este projeto √© uma API de vendas de acorodo com as regras estabelecidas no [DESAFIO](/Desafio.txt). Dessa forma a API gerencia oportunidades de vendas e seus vendedores.
+Neste projeto tamb√©m est√° habilitado o **SWAGGER** documentando o funcionamento da API, al√©m de ser desenvolvido no [Microsoft Visual Studio](https://visualstudio.microsoft.com/pt-br/downloads/).
 
-ConfiguraÁıes:
+Configura√ß√µes:
 
 ```bash
 	
 	dotnet => 6.0,
 	swagger = 6.4.0,
 	mondodb.Driver = 2.17,
-	newtonsoft.Json = 6.3,
+	newtonsoft.Json = 6.3
 
 ```
 
-A vers„o para produÁ„o ainda n„o est· diponivel, mas para executar o projeto basta executar:
+A vers√£o para produ√ß√£o ainda n√£o est√° dispon√≠vel, mas para executar o projeto basta executar:
 
 ```bash
 	dotnet run watch
 
 ```
 
-Nessa API È possÌvel obter dados de um vendedor e uma oportunidade, alÈm de realizar o cadastro de ambos. Todos os dados s„o salvos 
-s„o salvos no MONGODB. AlÈ disso, È possivel obter os dados do CNPJ atravÈs de uma API de terceiros [aqui](https://publica.cnpj.ws) usando o httClient conforme a [DocumentaÁ„o da Microsoft](https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/http-requests?view=aspnetcore-6.0).
-A imagem a seguir apresenta o projeto em execuÁ„o no Microsoft Visual Studio.
+Nessa API √© poss√≠vel obter dados de um vendedor e uma oportunidade, al√©m de realizar o cadastro de ambos. Todos os dados s√£o salvos 
+s√£o salvos no *MONGODB*. Al√© disso, √© poss√≠vel obter os dados do CNPJ atrav√©s de uma API de terceiros [aqui](https://publica.cnpj.ws) usando o httClient conforme a [Documenta√ß√£o da Microsoft](https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/http-requests?view=aspnetcore-6.0).
+A imagem a seguir apresenta o projeto em execu√ß√£o no Microsoft Visual Studio.
 
 ![Screenshot](/Image/Print.png)
+
+
 
 
 
