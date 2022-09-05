@@ -39,7 +39,8 @@
                         }
                   }
                     
-            * Os outros valores são gerados automaticamente *
+            * Os outros valores são gerados automaticamente 
+            * Necessário adicionar o CNPJ para que a API encontre-o
             
             </remarks>
                 

@@ -17,17 +17,22 @@ public class VendedorModels
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; set; }
+    public string Id { get; set; } = null!;
+
 
     [BsonElement("nome")]
-    public string Nome { get; set; }
- 
+    public string Nome { get; set; } = null!;
+
+
     [BsonElement("email")]
-    public string Email { get; set; }
+    public string Email { get; set; } = null!;
+
 
     [BsonElement("regiao")]
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public Regiao Regiao { get; set; }
-   
+
+
+
 }
 

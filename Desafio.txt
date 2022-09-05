@@ -1,0 +1,30 @@
+﻿Você está fazendo uma API REST em C# que gerencia oportunidades de vendas e seus vendedores. Cada vendedor é responsável por atender uma região do Brasil (norte, nordeste, sudeste, centro-oeste e sul). Um vendedor pode ser responsável por várias oportunidades de negócio, 
+mas uma oportunidade é vinculada a apenas um vendedor. Para essa API você deverá disponibilizar três endpoints.
+
+
+- Primeiro passo
+Você deve disponibilizar um endpoint que cadastre usuários contendo os campos: nome, e-mail e região responsável, sendo que e-mail deve ser único. 
+
+Dica: Para a região responsável você pode criar uma ENUM que contenha as cinco regiões.
+
+- Segundo passo
+Agora você deve disponibilizar um endpoint que cadastra uma oportunidade, contendo: CNPJ, nome e valor monetário, sendo que CNPJ deve ser um campo que aceita o formato "00000000000000" ou "00.000.000/0000-00".
+Utilizando a API pública https://publica.cnpj.ws/cnpj/{cnpj}, recupere os dados do estado do CNPJ e selecione um vendedor entre os cadastrados que atenda a região. Também devem ser recuperados da API a razão social da empresa e a descrição da atividade principal dessa empresa.
+
+Caso haja mais de um vendedor que atenda a mesma região, deverá ocorrer um processo de roleta, ou seja, se um vendedor tiver recebido uma oportunidade, ele não poderá receber outra em seguida.
+
+Lance os erros que achar pertinente nessa etapa e trate-os no controlador.
+
+Dica: O IBGE disponibiliza um código de dois números que identifica todos os estados nacionais. O primeiro número deste código identifica a região a qual o estado pertence:
+
+Exemplo: O identificador do estado de São Paulo é 35. O número 3 identifica a região, sendo ela: Sudeste.
+
+Tabela de regiões:
+
+Num 1 → Norte
+Num 2 → Nordeste
+Num 3 → Sudeste
+Num 4 → Sul
+Num 5 → Centro-Oeste
+- Terceiro passo
+Você também deve disponibilizar um endpoint que busca um usuário com todas as suas oportunidades de negócio. Lembrando que nesse retorno, as oportunidades já devem conter a razão social e a descrição da atividade principal da empresa.
