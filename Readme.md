@@ -14,7 +14,7 @@ Configurações:
 
 ```
 
-A versão para produção ainda não está disponível, mas para executar o projeto basta executar:
+A versão para produção ainda não está disponível, mas para executar o projeto localmente basta executar:
 
 ```bash
 	dotnet run watch
