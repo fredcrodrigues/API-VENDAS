@@ -25,7 +25,7 @@ Nessa API é possível obter dados de um vendedor e uma oportunidade, além de r
 são salvos no *MONGODB*. Alé disso, é possível obter os dados do CNPJ através de uma API de terceiros [aqui](https://www.cnpj.ws/) usando o httClient conforme a [Documentação da Microsoft](https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/http-requests?view=aspnetcore-6.0).
 A imagem a seguir apresenta o projeto em execução no Microsoft Visual Studio.
 
-![Screenshot](/Image/Print.png)
+![Screenshot](/Image/)
 
 
 
