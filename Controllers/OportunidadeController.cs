@@ -103,8 +103,8 @@ public class OportunidadeController : ControllerBase
         };
 
         dados.Cnpj = cnpj;
-        dados.Vendedor = (oportunidades.Count() == 0)? vendedor : Function.Roleta(vendedor, oportunidades);
-        var nflag = Function.VerificaRegiao(dados);
+        dados.Vendedor = (oportunidades.Count() == 0)? vendedor : FuncoesVendedorController.Roleta(vendedor, oportunidades);
+        var nflag = FuncoesOportunidadeController.VerificaRegiao(dados);
        
         /// Ver melhorias //
         if (nflag)

@@ -2,24 +2,8 @@
 namespace ApiVendas.Functions
 {
 
-    public class Function
+    public class FuncoesOportunidadeController
     {
-        // Função Roleta que verifica se o o vendedor já está cadastrado em uma oportunidade ou não
-        public static VendedorModels Roleta(VendedorModels vendedor, List<OportunidadeModels> oportunidades)
-        {
-           
-            foreach (var item in oportunidades)
-            {
-
-                if (item.Vendedor.Id == vendedor.Id)
-                {
-                    vendedor = null;
-                    break;
-                }
-            }
-
-            return vendedor;
-        }
         // Função que verifica a região de um vendedor antes de realizar a inserção no banco de dados
         public static bool VerificaRegiao(OportunidadeModels data)
         {
