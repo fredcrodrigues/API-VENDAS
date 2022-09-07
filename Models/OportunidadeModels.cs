@@ -1,17 +1,9 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-namespace ApiVendas.Models;
-
-public class CNPJ{
-
-    public string Numero { get; set; } = null!;
-    public  string Razao_social { get; set; } = null!;
-
-    public string Estado { get; set; } = null!;
-
-    public string Atividade { get; set; } = null!;
-
-}
+using ApiVendas.Class;
+namespace ApiVendas.Models
+{
+    /// Atributos para a classe oportunidades
 public class OportunidadeModels
 {
     [BsonId]
@@ -32,4 +24,5 @@ public class OportunidadeModels
     [BsonElement("vendedor")]
     public VendedorModels Vendedor { get; set; } = null!;
 
+}
 }

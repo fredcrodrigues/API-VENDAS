@@ -19,5 +19,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
 
 </Project>

@@ -7,25 +7,25 @@ namespace ApiVendas.Services;
 
 public class OportunidadeService
 {
-
-    public readonly IMongoCollection<OportunidadeModels> _databaseSettingsModels;
+    /// Injeção de dependecia com mongoDB e Chamado uma coleção especifica para  amanipulação dos dados
+    public readonly IMongoCollection<OportunidadeModels> _configuracaoBancoModels;
+    
   
-  
-    public OportunidadeService(IOptions<DatabaseSettingsModels> databaseSettingsModels) {
+    public OportunidadeService(IOptions<ConfiguracaoBancoModels> databaseSettingsModels) {
 
-        var mongoClient = new MongoClient(databaseSettingsModels.Value.ConnectionString);
-        var mongoDatabase = mongoClient.GetDatabase(databaseSettingsModels.Value.DatabaseName);
-        _databaseSettingsModels = mongoDatabase.GetCollection<OportunidadeModels>(databaseSettingsModels.Value.OportunidadeCollection);
+        var mongoClient = new MongoClient(databaseSettingsModels.Value.StringConexao);
+        var mongoDatabase = mongoClient.GetDatabase(databaseSettingsModels.Value.NomeBanco);
+        _configuracaoBancoModels = mongoDatabase.GetCollection<OportunidadeModels>(databaseSettingsModels.Value.ColecaoOportunidade);
       
     }
 
-    public async Task<List<OportunidadeModels>> GetAsync() => await _databaseSettingsModels.Find(_ => true).ToListAsync();
+    public async Task<List<OportunidadeModels>> AObterOportunidade() => await _configuracaoBancoModels.Find(_ => true).ToListAsync();
 
-    public async Task<OportunidadeModels> GetAsyncId(string id) => await _databaseSettingsModels.Find(x => x.Vendedor.Id == id).FirstOrDefaultAsync();
+    public async Task<OportunidadeModels> AObterId(string id) => await _configuracaoBancoModels.Find(x => x.Vendedor.Id == id).FirstOrDefaultAsync();
 
-    public async Task Create(OportunidadeModels data)
+    public async Task CriarOportunidade(OportunidadeModels dados)
     {
-        await _databaseSettingsModels.InsertOneAsync(data);
+        await _configuracaoBancoModels.InsertOneAsync(dados);
         
     }
     

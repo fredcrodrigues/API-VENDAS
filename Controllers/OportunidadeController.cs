@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using ApiVendas.Class;
 using ApiVendas.Services;
 using ApiVendas.Models;
 using ApiVendas.Functions;
@@ -31,7 +32,7 @@ public class OportunidadeController : ControllerBase
     ///  <response code="200"> Obtem a lista de oportunidades</response>
     
     [HttpGet]
-    public async Task<List<OportunidadeModels>> GetOportunidade() => await _oportunidadeService.GetAsync();
+    public async Task<List<OportunidadeModels>> ObterOportunidade() => await _oportunidadeService.AObterOportunidade();
 
 
     /// <summary>
@@ -42,9 +43,9 @@ public class OportunidadeController : ControllerBase
     
     [HttpGet("{id:length(24)}")]
 
-    public async Task<ActionResult<OportunidadeModels>> GetOportunidade(string id)
+    public async Task<ActionResult<OportunidadeModels>> ObterOportunidade(string id)
     {
-       var vendedorOportunidade =  await _oportunidadeService.GetAsyncId(id);
+       var vendedorOportunidade =  await _oportunidadeService.AObterId(id);
 
         if(vendedorOportunidade is null)
         
@@ -83,37 +84,37 @@ public class OportunidadeController : ControllerBase
     /// <response code="400"> Erro ao criar a oprotunidade</response>
 
     [HttpPost]
-    public async Task<IActionResult> Create(OportunidadeModels data)
+    public async Task<IActionResult> Criar(OportunidadeModels dados)
     {
        
-        var date_cnpj = await _apiService.GetApi(data.Cnpj.Numero);
-        var vendedor = await _vendedorService.GetId(data.Vendedor.Id);
+        var dados_cnpj = await _apiService.AObterApi(dados.Cnpj.Numero);
+        var vendedor = await _vendedorService.AObterId(dados.Vendedor.Id);
         
-        var  oportunidades = await _oportunidadeService.GetAsync();
+        var  oportunidades = await _oportunidadeService.AObterOportunidade();
         
-        JObject jobject = JObject.Parse(date_cnpj);
+        JObject jobject = JObject.Parse(dados_cnpj);
 
         var cnpj = new CNPJ
         {
-            Numero = data.Cnpj.Numero,
+            Numero = dados.Cnpj.Numero,
             Razao_social = jobject.SelectToken("razao_social").ToString(),
             Estado = jobject.SelectToken("estabelecimento.estado.nome").ToString(),
             Atividade = jobject.SelectToken("estabelecimento.atividade_principal.descricao").ToString()
         };
 
-        data.Cnpj = cnpj; 
-        data.Vendedor = (oportunidades.Count() == 0)? vendedor : Function.Roleta(vendedor, oportunidades);
-        var nflag = Function.VerifRegiao(data);
+        dados.Cnpj = cnpj;
+        dados.Vendedor = (oportunidades.Count() == 0)? vendedor : Function.Roleta(vendedor, oportunidades);
+        var nflag = Function.VerificaRegiao(dados);
        
         /// Ver melhorias //
         if (nflag)
         {
-            await _oportunidadeService.Create(data);
+            await _oportunidadeService.CriarOportunidade(dados);
             
         }
        
 
-        return (!nflag) ? NotFound("Vendedor não pose ser cadastrado") : CreatedAtAction(nameof(GetOportunidade), data);
+        return (!nflag) ? NotFound("Vendedor não pose ser cadastrado") : CreatedAtAction(nameof(ObterOportunidade), dados);
 
     }
 

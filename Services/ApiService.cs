@@ -5,6 +5,8 @@ namespace ApiVendas.Services
 {
     public class ApiService
     {
+        // Injeção de dependência para o uso do HTTPCLINT e chamar a api externa
+
         public readonly IHttpClientFactory _IhttpClientFactory;
 
         public ApiService(IHttpClientFactory Ihttpclient)
@@ -13,15 +15,15 @@ namespace ApiVendas.Services
         }
 
 
-        public async Task<string> GetApi(string cpnj)
+        public async Task<string> AObterApi(string cpnj)
         {
-            Console.WriteLine(cpnj);
+            
             var httpclient =  _IhttpClientFactory.CreateClient("apicnpj");
             var URL = $"cnpj/{cpnj}";
-            var response = await httpclient.GetAsync(URL);
+            var resposta = await httpclient.GetAsync(URL);
 
-            //var data = Newtonsoft.Json.JsonConvert.DeserializeObject<OportunidadeModels>(v_razao); */
-            return await response.Content.ReadAsStringAsync();
+          
+            return await resposta.Content.ReadAsStringAsync();
 
 
 

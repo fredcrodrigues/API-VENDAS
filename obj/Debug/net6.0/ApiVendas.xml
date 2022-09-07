@@ -4,20 +4,20 @@
         <name>ApiVendas</name>
     </assembly>
     <members>
-        <member name="M:ApiVendas.Controllers.OportunidadeController.GetOportunidade">
+        <member name="M:ApiVendas.Controllers.OportunidadeController.ObterOportunidade">
             <summary>
             Obtem a lista de oportunidades com vendedores
             </summary>
              <response code="200"> Obtem a lista de oportunidades</response>
         </member>
-        <member name="M:ApiVendas.Controllers.OportunidadeController.GetOportunidade(System.String)">
+        <member name="M:ApiVendas.Controllers.OportunidadeController.ObterOportunidade(System.String)">
             <summary>
             Obtem a lista de oportunidades por id
             </summary>
             
              <response code="201"> Um novo vendedor foi criado</response>
         </member>
-        <member name="M:ApiVendas.Controllers.OportunidadeController.Create(ApiVendas.Models.OportunidadeModels)">
+        <member name="M:ApiVendas.Controllers.OportunidadeController.Criar(ApiVendas.Models.OportunidadeModels)">
             <summary>
             Cadastra Oportunidades
             </summary>
@@ -47,14 +47,14 @@
             <response code="201"> Uma nova oportunidade foi criada </response>
             <response code="400"> Erro ao criar a oprotunidade</response>
         </member>
-        <member name="M:ApiVendas.Controllers.VendedorController.Get">
+        <member name="M:ApiVendas.Controllers.VendedorController.ObterVendedor">
             <summary>
             Lista Todas os Vendedores cadastrados
             </summary>
             <returns>Retorna a lista de vendedores</returns>
             <response code="200"> Retorna os itens da lista</response>
         </member>
-        <member name="M:ApiVendas.Controllers.VendedorController.CreatePost(ApiVendas.Models.VendedorModels)">
+        <member name="M:ApiVendas.Controllers.VendedorController.CriarVendedor(ApiVendas.Models.VendedorModels)">
             <summary>
             Cria um novo vendedor e selecione uma região
             </summary>
@@ -80,6 +80,24 @@
             </remarks>
             <response code="201"> Um novo vendedor foi criado</response>
             <response code="400" >O novo vendedor não foi criado</response>
+        </member>
+        <member name="T:ApiVendas.Models.ConfiguracaoBancoModels">
+            Atributos para a conection string
+        </member>
+        <member name="T:ApiVendas.Models.OportunidadeModels">
+            Atributos para a classe oportunidades
+        </member>
+        <member name="T:ApiVendas.Models.Regiao">
+            Enum Região para obter os dados
+        </member>
+        <member name="T:ApiVendas.Models.VendedorModels">
+            Atributos para a classe vendedor
+        </member>
+        <member name="F:ApiVendas.Services.OportunidadeService._configuracaoBancoModels">
+            Injeção de dependecia com mongoDB e Chamado uma coleção especifica para  amanipulação dos dados
+        </member>
+        <member name="F:ApiVendas.Services.VendedorService._configuracaoBancoModels">
+            Injeção de dependecia com mongoDB e Chamado uma coleção especifica para  a manipulação dos dados
         </member>
     </members>
 </doc>

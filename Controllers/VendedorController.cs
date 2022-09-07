@@ -21,7 +21,7 @@ public class VendedorController : ControllerBase
     /// <response code="200"> Retorna os itens da lista</response>
    
     [HttpGet]
-    public async Task<List<VendedorModels>> Get() => await _vendedorService.GetAsync();
+    public async Task<List<VendedorModels>> ObterVendedor() => await _vendedorService.AObterVendedor();
 
     /// <summary>
     /// Cria um novo vendedor e selecione uma região
@@ -50,11 +50,11 @@ public class VendedorController : ControllerBase
     /// <response code="400" >O novo vendedor não foi criado</response>
     
     [HttpPost]
-    public async Task<IActionResult> CreatePost(VendedorModels date)
+    public async Task<IActionResult> CriarVendedor(VendedorModels date)
     {
         
-        await _vendedorService.Create(date);
-        return CreatedAtAction(nameof(Get), date);
+        await _vendedorService.ACriarVendedor(date);
+        return CreatedAtAction(nameof(ObterVendedor), date);
     }
 
 }

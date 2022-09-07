@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.Configure<DatabaseSettingsModels>(
+builder.Services.Configure<ConfiguracaoBancoModels>(
     builder.Configuration.GetSection("API")
 );
 
@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen( s =>
     /// Describe name API
     s.SwaggerDoc("v1", new OpenApiInfo
     {
-      Title = "Api Vendas e Opotunidades" ,
+      Title = "Api Vendas e Oportunidades" ,
       Version = "v1",
       Description = "Api que gerencia oportunidades de vendas e seus vendedores. " +
       "Cada vendedor é responsável por atender uma região do Brasil (norte, nordeste, sudeste, centro-oeste e sul)",

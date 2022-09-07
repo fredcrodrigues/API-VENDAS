@@ -3,6 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
 namespace ApiVendas.Models;
 
+/// Enum Região para obter os dados
 public enum Regiao
 {
     Vazio = 0,
@@ -12,7 +13,7 @@ public enum Regiao
     Centro_Oeste = 4,
     Sul = 5
 }
-
+    /// Atributos para a classe vendedor
 public class VendedorModels
 {
     [BsonId]
