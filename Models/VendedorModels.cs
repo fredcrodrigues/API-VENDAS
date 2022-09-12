@@ -21,7 +21,7 @@ public class VendedorModels
     public string Id { get; set; } = null!;
 
 
-    [BsonElement("nome")]
+    [BsonElement("name")]
     public string Nome { get; set; } = null!;
 
 
@@ -29,7 +29,7 @@ public class VendedorModels
     public string Email { get; set; } = null!;
 
 
-    [BsonElement("regiao")]
+    [BsonElement("region")]
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public Regiao Regiao { get; set; }
 
