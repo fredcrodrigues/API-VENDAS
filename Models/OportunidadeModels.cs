@@ -14,15 +14,15 @@ public class OportunidadeModels
     public CNPJ Cnpj { get; set; } = null!;
 
     [BsonElement("name")]
-    public string Nome { get; set; } = null!;
+    public string Name { get; set; } = null!;
 
 
     [BsonElement("value")]
-    public decimal Valor { get; set; }
+    public decimal Value { get; set; }
 
 
     [BsonElement("seller")]
-    public VendedorModels Vendedor { get; set; } = null!;
+    public VendedorModels Seller { get; set; } = null!;
 
 }
 }

@@ -12,7 +12,7 @@ namespace ApiVendas.Functions
             foreach (var item in oportunidades)
             {
 
-                if (item.Vendedor.Id == vendedor.Id)
+                if (item.Seller.Id == vendedor.Id)
                 {
                     vendedor = null;
                     break;

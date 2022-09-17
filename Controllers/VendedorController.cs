@@ -52,7 +52,8 @@ public class VendedorController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CriarVendedor(VendedorModels date)
     {
-        
+
+       
         await _vendedorService.ACriarVendedor(date);
         return CreatedAtAction(nameof(ObterVendedor), date);
     }

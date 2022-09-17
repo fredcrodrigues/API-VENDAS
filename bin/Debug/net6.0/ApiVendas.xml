@@ -87,7 +87,7 @@
         <member name="T:ApiVendas.Models.OportunidadeModels">
             Atributos para a classe oportunidades
         </member>
-        <member name="T:ApiVendas.Models.Regiao">
+        <member name="T:ApiVendas.Models.Regions">
             Enum Região para obter os dados
         </member>
         <member name="T:ApiVendas.Models.VendedorModels">

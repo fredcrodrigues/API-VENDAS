@@ -2,11 +2,11 @@
 {
     public class CNPJ
     {
-        public string Numero { get; set; } = null!;
-        public string Razao_social { get; set; } = null!;
+        public string Number { get; set; } = null!;
+        public string Social_reason { get; set; } = null!;
 
-        public string Estado { get; set; } = null!;
+        public string State { get; set; } = null!;
 
-        public string Atividade { get; set; } = null!;
+        public string Activity { get; set; } = null!;
     }
 }

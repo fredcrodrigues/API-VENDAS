@@ -87,23 +87,27 @@ public class OportunidadeController : ControllerBase
     public async Task<IActionResult> Criar(OportunidadeModels dados)
     {
        
-        var dados_cnpj = await _apiService.AObterApi(dados.Cnpj.Numero);
-        var vendedor = await _vendedorService.AObterId(dados.Vendedor.Id);
-        
+        var dados_cnpj = await _apiService.AObterApi(dados.Cnpj.Number);
+        var vendedor = await _vendedorService.AObterId(dados.Seller.Id);
+
+        Console.WriteLine(vendedor);
+        Console.WriteLine(dados_cnpj);
+
+
         var  oportunidades = await _oportunidadeService.AObterOportunidade();
         
         JObject jobject = JObject.Parse(dados_cnpj);
 
         var cnpj = new CNPJ
         {
-            Numero = dados.Cnpj.Numero,
-            Razao_social = jobject.SelectToken("razao_social").ToString(),
-            Estado = jobject.SelectToken("estabelecimento.estado.nome").ToString(),
-            Atividade = jobject.SelectToken("estabelecimento.atividade_principal.descricao").ToString()
+            Number = dados.Cnpj.Number,
+            Social_reason= jobject.SelectToken("razao_social").ToString(),
+            State = jobject.SelectToken("estabelecimento.estado.nome").ToString(),
+            Activity = jobject.SelectToken("estabelecimento.atividade_principal.descricao").ToString()
         };
 
         dados.Cnpj = cnpj;
-        dados.Vendedor = (oportunidades.Count() == 0)? vendedor : FuncoesVendedorController.Roleta(vendedor, oportunidades);
+        dados.Seller = (oportunidades.Count() == 0)? vendedor : FuncoesVendedorController.Roleta(vendedor, oportunidades);
         var nflag = FuncoesOportunidadeController.VerificaRegiao(dados);
        
         /// Ver melhorias //

@@ -20,9 +20,9 @@ namespace ApiVendas.Functions
 
                 caracter = (caracter == '1' || caracter == '2') ? 'N' : (caracter == '3' || caracter == '4') ? caracter = 'S' : (caracter == '5') ? 'C' : '\0';
 
-                if (data.Vendedor != null && flag == false)
+                if (data.Seller != null && flag == false)
                 {
-                    flag = (caracter == data.Vendedor.Regiao.ToString().ToCharArray()[0]) ? true : false;
+                    flag = (caracter == data.Seller.Region.ToString().ToCharArray()[0]) ? true : false;
                     break;
 
                 }

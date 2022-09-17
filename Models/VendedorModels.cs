@@ -4,25 +4,25 @@ using System.Text.Json.Serialization;
 namespace ApiVendas.Models;
 
 /// Enum Região para obter os dados
-public enum Regiao
+public enum Regions
 {
-    Vazio = 0,
-    Norte = 1,
-    Nordeste = 2,
-    Sudeste = 3,
-    Centro_Oeste = 4,
-    Sul = 5
+  
+    Norte,
+    Nordeste,
+    Sudeste,
+    Centro_Oeste,
+    Sul
 }
     /// Atributos para a classe vendedor
 public class VendedorModels
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; set; } = null!;
+    public string? Id { get; set; } = null!;
 
 
     [BsonElement("name")]
-    public string Nome { get; set; } = null!;
+    public string Name { get; set; } = null!;
 
 
     [BsonElement("email")]
@@ -31,7 +31,7 @@ public class VendedorModels
 
     [BsonElement("region")]
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public Regiao Regiao { get; set; }
+    public Regions Region { get; set; }
 
 
 
