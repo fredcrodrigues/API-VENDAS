@@ -44,9 +44,7 @@ builder.Services.AddSwaggerGen( s =>
           Email = "fredsoncostaa@gmail.com",
           Url = new Uri ("https://github.com/fredcrodrigues")
       }
-
     });
-
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     s.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFile));
 });

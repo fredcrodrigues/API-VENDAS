@@ -8,6 +8,7 @@ namespace ApiVendas.Functions
         // Função Roleta que verifica se o o vendedor já está cadastrado em uma oportunidade ou não
         public static VendedorModels Roleta(VendedorModels vendedor, List<OportunidadeModels> oportunidades)
         {
+            Console.WriteLine("Teste" + vendedor.Name);
 
             foreach (var item in oportunidades)
             {

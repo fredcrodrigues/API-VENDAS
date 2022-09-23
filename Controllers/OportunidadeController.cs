@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using ApiVendas.Class;
 using ApiVendas.Services;
 using ApiVendas.Models;
 using ApiVendas.Functions;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text;
+
 
 
 namespace ApiVendas.Controllers;
@@ -45,7 +49,8 @@ public class OportunidadeController : ControllerBase
 
     public async Task<ActionResult<OportunidadeModels>> ObterOportunidade(string id)
     {
-       var vendedorOportunidade =  await _oportunidadeService.AObterId(id);
+        Console.WriteLine("Listando Opotunidade");
+    ;       var vendedorOportunidade =  await _oportunidadeService.AObterId(id);
 
         if(vendedorOportunidade is null)
         
@@ -86,18 +91,19 @@ public class OportunidadeController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Criar(OportunidadeModels dados)
     {
-       
+        // obtem dados do cnpj de ooutra API
         var dados_cnpj = await _apiService.AObterApi(dados.Cnpj.Number);
+
+        // obtem dados do Vendedor
         var vendedor = await _vendedorService.AObterId(dados.Seller.Id);
 
-        Console.WriteLine(vendedor);
-        Console.WriteLine(dados_cnpj);
-
-
+      
         var  oportunidades = await _oportunidadeService.AObterOportunidade();
-        
+        // Cria um Objeto Json
         JObject jobject = JObject.Parse(dados_cnpj);
 
+
+        // Cria novo cnpj atraves do Tokens Json
         var cnpj = new CNPJ
         {
             Number = dados.Cnpj.Number,
@@ -106,10 +112,14 @@ public class OportunidadeController : ControllerBase
             Activity = jobject.SelectToken("estabelecimento.atividade_principal.descricao").ToString()
         };
 
+      
+
         dados.Cnpj = cnpj;
         dados.Seller = (oportunidades.Count() == 0)? vendedor : FuncoesVendedorController.Roleta(vendedor, oportunidades);
+      
         var nflag = FuncoesOportunidadeController.VerificaRegiao(dados);
-       
+
+        
         /// Ver melhorias //
         if (nflag)
         {

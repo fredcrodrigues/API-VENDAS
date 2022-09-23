@@ -25,6 +25,7 @@ public class OportunidadeService
 
     public async Task CriarOportunidade(OportunidadeModels dados)
     {
+      
         await _configuracaoBancoModels.InsertOneAsync(dados);
         
     }

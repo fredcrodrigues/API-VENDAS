@@ -8,7 +8,7 @@ public class OportunidadeModels
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id = null;
+    public string? Id { get; set; } = null!;
 
     [BsonElement("cnpj")]
     public CNPJ Cnpj { get; set; } = null!;

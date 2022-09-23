@@ -6,12 +6,12 @@ namespace ApiVendas.Models;
 /// Enum Região para obter os dados
 public enum Regions
 {
-  
-    Norte,
-    Nordeste,
-    Sudeste,
-    Centro_Oeste,
-    Sul
+    Vazio = 0,
+    Norte = 1,
+    Nordeste = 2,
+    Sudeste = 3,
+    Centro_Oeste = 4,
+    Sul = 5
 }
     /// Atributos para a classe vendedor
 public class VendedorModels

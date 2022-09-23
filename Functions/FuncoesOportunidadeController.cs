@@ -16,15 +16,21 @@ namespace ApiVendas.Functions
             for (int i = 0; i < codigos.Length; i++)
             {
 
+                // verifica se os codigos dos estados estão correpondente a regiao do vendedor
                 caracter = codigos[i].ToCharArray()[0];
+               
 
                 caracter = (caracter == '1' || caracter == '2') ? 'N' : (caracter == '3' || caracter == '4') ? caracter = 'S' : (caracter == '5') ? 'C' : '\0';
-
+                
+                // atribui o valor da Flag para continuar o inserção de dados
                 if (data.Seller != null && flag == false)
                 {
                     flag = (caracter == data.Seller.Region.ToString().ToCharArray()[0]) ? true : false;
+                   
+                }
+                else
+                {
                     break;
-
                 }
 
             }
